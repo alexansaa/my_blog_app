@@ -89,8 +89,9 @@ Clone this repository to your desired folder:
 
 ### Usage
 
-To start and setup the database, execute the following command:
+To start and setup the database, execute the following commands:
 ```sh
+sudo service postgresql start
 rails db:create
 ```
 
