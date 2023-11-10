@@ -42,6 +42,10 @@ RSpec.describe Post, type: :model do
     expect(subject).to be_valid
   end
 
+  it 'check the corectness of the post counter after a user creates a post' do
+    expect(tmp_user.posts_counter).to eq(1)
+  end
+
   it 'returns the most recent comments' do
     comments1 = subject.comments.create(user: tmp_user, text: 'comment text')
     comments2 = subject.comments.create(user: tmp_user, text: 'comment text')
