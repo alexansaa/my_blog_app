@@ -3,25 +3,17 @@ class Post < ApplicationRecord
   has_many :comments
   has_many :likes
 
-  def self.update_counter(user_id, post_count)
-    my_user = User.find(user_id)
-    if my_user.nil?
-      puts 'User not found'
-      return
-    end
-    my_user.update(posts_counter: post_count)
+  after_save :update_post_counter
+
+  validates :title, presence: true, length: { maximum: 250 }
+  validates :comments_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :likes_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+
+  def most_recent_comments
+    comments.order(created_at: :desc).limit(5)
   end
 
-  def self.most_recent_comments(post_id, limit = 5)
-    my_post = Post.find(post_id)
-    if my_post.nil?
-      puts 'Post not found'
-      return
-    end
-    my_comments = my_post.comments.order(created_at: :desc).limit(limit)
-    my_comments.each do |c|
-      puts "#{c.user} #{c.text}"
-    end
-    my_comments
+  def update_post_counter
+    user.update(posts_counter: user.posts.count)
   end
 end
