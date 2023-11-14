@@ -8,4 +8,3 @@ class PostsController < ApplicationController
     @post_id = params[:id]
   end
 end
-  
