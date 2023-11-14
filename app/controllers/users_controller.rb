@@ -3,16 +3,7 @@ class UsersController < ApplicationController
     # shows index view
   end
 
-  def user
+  def show
     @user_id = params[:id]
-  end
-
-  def posts
-    @user_id = params[:id]
-  end
-
-  def post
-    @user_id = params[:id]
-    @post_id = params[:p_id]
   end
 end
