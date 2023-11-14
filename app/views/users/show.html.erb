@@ -1,1 +1,11 @@
-<h1 name='title'>Here is most of the information for User ID: <%= @user_id %></h1>
+<%= render partial: 'user', locals: { user: @user } %>
+<h2>Bio</h2>
+<p><%= @user.bio %></p>
+
+<% if @posts.present? %>
+  <% @posts.each do |post| %>
+    <%= render partial: 'posts/post', locals: { post: post } %>
+  <% end %>
+<% else %>
+  <p>No posts available</p>
+<% end %>
