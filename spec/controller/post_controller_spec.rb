@@ -26,13 +26,13 @@ RSpec.describe PostsController, type: :controller do
 
     it 'reders the show view' do
       get :show, params: { user_id: 1, id: 3 }
-      expect(response). to render_template('show')
+      expect(response).to render_template('show')
       assert 'title', 'Here is a full description of post 3 for User ID: 1'
     end
 
     it 'renders the correct placeholder text' do
       get :show, params: { user_id: 1, id: 3 }
-      expect(response). to render_template('show')
+      expect(response).to render_template('show')
       assert 'h1', 'Here is a full description of post 3 for User ID: 1'
     end
   end
