@@ -9,6 +9,7 @@ RSpec.describe PostsController, type: :controller do
 
     it 'renders the index view' do
       get :index, params: { user_id: 1 }
+      expect(response).to render_template('index')
       assert 'title', 'Here is a list of posts for User Id: 1'
     end
 

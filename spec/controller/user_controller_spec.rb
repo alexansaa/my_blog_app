@@ -9,6 +9,7 @@ RSpec.describe UsersController, type: :controller do
 
     it 'renders the index view' do
       get :index
+      expect(response).to render_template('index')
       assert 'title', 'Here is a list of users, as the main page'
     end
 
