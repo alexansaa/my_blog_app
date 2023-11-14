@@ -1,1 +1,5 @@
-<h1 name='title'>Here is a full description of post <%= @post_id %> for User ID: <%= @user_id %></h1>
+<h2>Post <%= @post.id %> by <%= @user.name %></h2>
+<p><%= @post.text %></p>
+<% @comments.each do |comment| %>
+  <%= render partial: 'comments/comment', locals: { comment: comment } %>
+<% end %>

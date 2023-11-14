@@ -1,9 +1,12 @@
 class UsersController < ApplicationController
   def index
-    # shows index view
+    @users = User.all
   end
 
   def show
-    @user_id = params[:id]
+    @user = User.find(params[:id])
+    @posts = @user.posts
+    puts "@user: #{@user.inspect}"
+    puts "@posts: #{@posts.inspect}"
   end
 end
