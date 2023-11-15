@@ -1,0 +1,39 @@
+.elmnt {
+  display: flex;
+  /* height: 120px; */
+  margin-top: 25px;
+  margin-bottom: 25px;
+  margin-left: 35px;
+  margin-right: 35px;
+}
+
+.border {
+  border-style: solid;
+}
+
+.user_img {
+  width: 12%;
+  margin-right: 25px;
+}
+
+.user_data {
+  width: 88%;
+  align-self: center;
+  display: flex;
+}
+
+.name {
+  font-size: 40px;
+  font-weight: bolder;
+  margin-left: 25px;
+  justify-self: center;
+  width: 50%;
+}
+
+.posts_count {
+  width: 50%;
+  font-size: 20px;
+  margin-top: auto;
+  text-align: end;
+  margin-right: 45px;
+}
