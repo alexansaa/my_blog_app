@@ -1,4 +1,9 @@
-<h1 name='title'>Here is a list of users, as the main page</h1>
-<% @users.each do |user| %>
-  <%= render partial: 'user', locals: { user: user } %>
-<% end %>
+<head>
+</head>
+<body>
+  <div>
+    <% @users.each do |user| %>
+      <%= render partial: 'user', locals: { user: user } %>
+    <% end %>
+  </div>
+</body>

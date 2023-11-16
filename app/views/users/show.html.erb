@@ -1,11 +1,26 @@
-<%= render partial: 'user', locals: { user: @user } %>
-<h2>Bio</h2>
-<p><%= @user.bio %></p>
-
-<% if @posts.present? %>
-  <% @posts.each do |post| %>
-    <%= render partial: 'posts/post', locals: { post: post } %>
-  <% end %>
-<% else %>
-  <p>No posts available</p>
-<% end %>
+<head>
+  <%= stylesheet_link_tag "user_show" %>
+</head>
+<body class="mrg">
+  <div>
+    <%= render partial: 'user', locals: { user: @user } %>
+  </div>
+  <div class="border mrg">
+    <div class="title mrg">
+      <h2>Bio</h2>
+      <p><%= @user.bio %></p>
+    </div>
+  </div>
+  <div>
+    <% if @posts.present? %>
+      <% @posts.each_with_index do |post, index| %>
+        <%= render partial: 'posts/post', locals: { post: post, index: index } %>
+      <% end %>
+    <% else %>
+      <p>No posts available</p>
+    <% end %>
+  </div>
+  <div class="btn">
+    <button type="button">See all posts!</button>
+  </div>
+</body>

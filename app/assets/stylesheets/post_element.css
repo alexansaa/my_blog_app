@@ -1,0 +1,24 @@
+.mrg {
+  margin-left: 35px;
+  margin-right: 35px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.border {
+  border-style: solid;
+}
+
+.post_title h3 {
+  font-size: 30px;
+}
+
+.post_title p {
+  font-size: 25px;
+}
+
+.post_info {
+  display: flex;
+  justify-content: end;
+  margin-right: 35px;
+}

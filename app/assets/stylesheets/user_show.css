@@ -1,0 +1,28 @@
+.mrg {
+  margin-left: 35px;
+  margin-right: 35px;
+}
+
+.border {
+  border-style: solid;
+}
+
+.title h2 {
+  font-size: 30px;
+}
+
+.title p {
+  font-size: 20px;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn button {
+  height: 90px;
+  width: 200px;
+  font-size: 30px;
+}
