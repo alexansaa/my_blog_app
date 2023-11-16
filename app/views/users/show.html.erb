@@ -14,7 +14,7 @@
   <div>
     <% if @posts.present? %>
       <% @posts.each_with_index do |post, index| %>
-        <%= render partial: 'posts/post', locals: { post: post, index: index } %>
+        <%= render partial: 'posts/post', locals: { post: post, index: index + 1 } %>
       <% end %>
     <% else %>
       <p>No posts available</p>
