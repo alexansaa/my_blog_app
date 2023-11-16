@@ -1,1 +1,13 @@
-<p><%= comment.text %></p>
+<head>
+  <%= stylesheet_link_tag "comment_element" %>
+</head>
+<body>
+  <div class="space_commnet_element mrg border">
+    <% comments.each do |comment| %>
+      <div class="data">
+        <p><%= User.find(comment.user_id).name %>:</p>
+        <p><%= comment.text %></p>
+      </div>
+    <% end %>
+  </div>
+</body>

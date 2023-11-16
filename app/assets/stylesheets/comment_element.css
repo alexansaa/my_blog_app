@@ -1,0 +1,22 @@
+.data {
+  display: flex;
+  margin-left: 35px;
+}
+
+.data p {
+  font-size: 30px;
+  margin-right: 5px;
+}
+
+.space_commnet_element {
+  margin-top: 0;
+}
+
+.mrg p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.border {
+  border-style: solid;
+}
