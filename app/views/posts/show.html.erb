@@ -1,6 +1,10 @@
 
-<h2>Post <%= @post.id %> by <%= @user.name %></h2>
-<p><%= @post.text %></p>
-<% @comments.each do |comment| %>
-  <%= render partial: 'comments/comment', locals: { comment: comment } %>
-<% end %>
+<head>
+  <%= stylesheet_link_tag "post_show" %>
+</head>
+<body>
+  <div>
+    <%= render partial: 'posts/post', locals: { post: @post, index: @post.id } %>
+  </div>
+  <%= render partial: 'comments/comment', locals: { comments: @comments } %>
+</body>

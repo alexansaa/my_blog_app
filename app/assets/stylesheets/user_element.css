@@ -27,11 +27,9 @@
   font-weight: bolder;
   margin-left: 25px;
   justify-self: center;
-  width: 50%;
 }
 
 .posts_count {
-  width: 50%;
   font-size: 20px;
   margin-top: auto;
   text-align: end;

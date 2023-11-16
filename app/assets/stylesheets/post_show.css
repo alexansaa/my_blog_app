@@ -1,0 +1,16 @@
+.border {
+  display: flex;
+  flex-direction: column;
+}
+
+.post_title {
+  order: 1;
+}
+
+.post_info {
+  order: 2;
+}
+
+.post_body {
+  order: 3;
+}
