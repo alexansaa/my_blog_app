@@ -1,8 +1,7 @@
 .elmnt {
   display: flex;
-  /* height: 120px; */
   margin-top: 25px;
-  margin-bottom: 0px;
+  margin-bottom: 0;
   margin-left: 35px;
   margin-right: 35px;
 }
