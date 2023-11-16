@@ -1,7 +1,8 @@
 <head>
+  <%= stylesheet_link_tag "user_index" %>
 </head>
 <body>
-  <div>
+  <div class="space_btw">
     <% @users.each do |user| %>
       <%= render partial: 'user', locals: { user: user } %>
     <% end %>

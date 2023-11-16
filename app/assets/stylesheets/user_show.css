@@ -1,6 +1,8 @@
 .mrg {
   margin-left: 35px;
   margin-right: 35px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .border {
@@ -25,4 +27,8 @@
   height: 90px;
   width: 200px;
   font-size: 30px;
+}
+
+.no_border {
+  margin-top: 0px;
 }
