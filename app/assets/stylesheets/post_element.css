@@ -9,11 +9,16 @@
   border-style: solid;
 }
 
+.post_title {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 .post_title h3 {
   font-size: 30px;
 }
 
-.post_title p {
+.post_body p {
   font-size: 25px;
 }
 

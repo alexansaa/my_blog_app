@@ -7,7 +7,7 @@
   </div>
   <div>
     <% @posts.each_with_index do |post, index| %>
-      <%= render partial: 'posts/post', locals: { post: post, index: index } %>
+      <%= render partial: 'posts/post', locals: { post: post, index: index + 1 } %>
       <% @comments = post.comments %>
       <%= render partial: 'comments/comment', locals: { comments: @comments } %>
     <% end %>
