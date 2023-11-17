@@ -1,1 +1,10 @@
-<h1 name='title'>Here is a full description of post <%= @post_id %> for User ID: <%= @user_id %></h1>
+
+<head>
+  <%= stylesheet_link_tag "post_show" %>
+</head>
+<body>
+  <div>
+    <%= render partial: 'posts/post', locals: { post: @post, index: @post.id } %>
+  </div>
+  <%= render partial: 'comments/comment', locals: { comments: @comments } %>
+</body>

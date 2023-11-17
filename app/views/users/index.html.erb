@@ -1,1 +1,10 @@
-<h1 name='title'>Here is a list of users, as the main page</h1>
+<head>
+  <%= stylesheet_link_tag "user_index" %>
+</head>
+<body>
+  <div class="space_btw">
+    <% @users.each do |user| %>
+      <%= render partial: 'user', locals: { user: user } %>
+    <% end %>
+  </div>
+</body>

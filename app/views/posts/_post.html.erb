@@ -1,0 +1,19 @@
+<%= link_to user_post_path(@user, post), class: 'no_link' do %>
+  <head>
+    <%= stylesheet_link_tag "post_element" %>
+  </head>
+  <body>
+    <div class="border space_post_element">
+      <div class="post_title mrg">
+        <h3>Post &#35;<%= index %></h3>
+      </div>
+      <div class="post_body mrg">
+        <p><%= post.text %></p>
+      </div>
+      <div class="post_info">
+        <p>Comments: <%= post.comments_counter %>, </p>
+        <p>Likes: <%= post.likes_counter%></p>
+      </div>
+    </div>
+  </body>
+<% end %>

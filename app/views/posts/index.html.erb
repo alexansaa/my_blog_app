@@ -1,1 +1,17 @@
-<h1 name='title'>Here is a list of posts for User Id: <%= @user_id%></h1>
+<head>
+</head>
+<body>
+  <div>
+    <%= render partial: 'users/user', locals: { user: @user } %>
+  </div>
+  <div>
+    <% @posts.each_with_index do |post, index| %>
+      <%= render partial: 'posts/post', locals: { post: post, index: index + 1 } %>
+      <% @comments = post.most_recent_comments %>
+      <%= render partial: 'comments/comment', locals: { comments: @comments } %>
+    <% end %>
+  </div>
+  <div class="btn">
+    <button type="button">Pagination</button>
+  </div>
+</body>
