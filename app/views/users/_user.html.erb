@@ -1,14 +1,16 @@
-<head>
-  <%= stylesheet_link_tag "user_element" %>
-</head>
-<body>
-  <div class="elmnt">
-    <div class="border user_img">
-      <img src="<%= user.photo %>">
+<%= link_to user_path(user), class: 'no_link' do %>
+  <head>
+    <%= stylesheet_link_tag "user_element" %>
+  </head>
+  <body>
+    <div class="elmnt">
+      <div class="border user_img">
+        <img src="<%= user.photo %>">
+      </div>
+      <div class="border user_data">
+        <h3 class="name"><%= user.name %></h3>
+        <h4 class="posts_count">Number of posts: <%= user.posts_counter %></h4>
+      </div>
     </div>
-    <div class="border user_data">
-      <h3 class="name"><%= user.name %></h3>
-      <h4 class="posts_count">Number of posts: <%= user.posts_counter %></h4>
-    </div>
-  </div>
-</body>
+  </body>
+<% end %>
