@@ -7,7 +7,7 @@ class LikesController < ApplicationController
     respond_to do |format|
       if @new_like.save
         flash[:success] = 'Like saved successfully'
-        format.js { render js: "window.location = '#{user_post_path(@user, @post)}';"}
+        format.js { render js: "window.location = '#{user_post_path(@user, @post)}';" }
       else
         puts 'like not created'
         puts @new_like.errors.full_messages.join(', ')
@@ -16,6 +16,5 @@ class LikesController < ApplicationController
         format.js { render js: "console.error('Error: Like could not be created');" }
       end
     end
-
   end
 end

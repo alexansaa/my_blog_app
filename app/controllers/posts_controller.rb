@@ -14,7 +14,7 @@ class PostsController < ApplicationController
     @user = ApplicationController.current_user
     @post = Post.new
     respond_to do |format|
-      format.html { render :new, locals: { post: @post, user: @user} }
+      format.html { render :new, locals: { post: @post, user: @user } }
     end
   end
 
@@ -31,7 +31,7 @@ class PostsController < ApplicationController
       else
         flash.now[:error] = 'Error: Post could not be saved'
         flash.now[:error_details] = @new_post.errors.full_messages.join(', ')
-        format.html { render :new, locals: {post: @new_post, user: @user} }
+        format.html { render :new, locals: { post: @new_post, user: @user } }
       end
     end
   end

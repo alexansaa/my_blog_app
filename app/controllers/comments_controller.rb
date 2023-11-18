@@ -21,7 +21,7 @@ class CommentsController < ApplicationController
       else
         flash.now[:error] = 'Error: Comment could not be saved'
         flash.now[:error_details] = @new_comment.errors.full_messages.join(', ')
-        format.html { render :new, locals: { comment: @new_comment, user: @user, post: @post }}
+        format.html { render :new, locals: { comment: @new_comment, user: @user, post: @post } }
       end
     end
   end
