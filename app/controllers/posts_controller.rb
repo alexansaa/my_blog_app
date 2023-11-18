@@ -27,7 +27,8 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @new_post.save
         flash[:success] = 'Post saved successfully'
-        format.html { redirect_to user_posts_path(@user), notice: 'Post created' }
+        # format.html { redirect_to user_posts_path(user_id: @user.id), notice: 'Post created' }
+        format.js { render js: "window.location = '#{user_posts_path(user_id: @user.id)}';" }
       else
         flash.now[:error] = 'Error: Post could not be saved'
         flash.now[:error_details] = @new_post.errors.full_messages.join(', ')
