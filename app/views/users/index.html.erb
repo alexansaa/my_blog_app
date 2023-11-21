@@ -7,4 +7,7 @@
       <%= render partial: 'user', locals: { user: user } %>
     <% end %>
   </div>
+  <div class="new_post">
+    <%= link_to 'New Post', new_user_post_path(ApplicationController.current_user) %>
+  </div>
 </body>
