@@ -9,7 +9,7 @@ RSpec.describe 'User Page', type: :system do
   describe 'single user page' do
     it 'show the user info correctly' do
       visit user_path(@user)
-      expect(page).to have_css("img[src*='#{@user.photo}']")
+      expect(page).to have_css("img[src='#{@user.photo}']")
       expect(page).to have_content(@user.name)
       expect(page).to have_content("Number of posts: #{@user.posts_counter}")
       expect(page).to have_content(@user.bio)
