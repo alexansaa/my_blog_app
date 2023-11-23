@@ -55,20 +55,20 @@ RSpec.describe Post, type: :model do
 
     most_recent_comments = subject.most_recent_comments.to_a
 
-    expect(most_recent_comments).to eq([comments5, comments4, comments3, comments2, comments1])
+    expect(most_recent_comments).to eq([comments1, comments2, comments3, comments4, comments5])
   end
 
   it 'returns the 5 most recent posts, even if there are more' do
-    subject.comments.create(user: tmp_user, text: 'comment text')
-    subject.comments.create(user: tmp_user, text: 'comment text')
+    comments1 = subject.comments.create(user: tmp_user, text: 'comment text')
+    comments2 = subject.comments.create(user: tmp_user, text: 'comment text')
     comments3 = subject.comments.create(user: tmp_user, text: 'comment text')
     comments4 = subject.comments.create(user: tmp_user, text: 'comment text')
     comments5 = subject.comments.create(user: tmp_user, text: 'comment text')
-    comments6 = subject.comments.create(user: tmp_user, text: 'comment text')
-    comments7 = subject.comments.create(user: tmp_user, text: 'comment text')
+    subject.comments.create(user: tmp_user, text: 'comment text')
+    subject.comments.create(user: tmp_user, text: 'comment text')
 
     most_recent_comments = subject.most_recent_comments.to_a
 
-    expect(most_recent_comments).to eq([comments7, comments6, comments5, comments4, comments3])
+    expect(most_recent_comments).to eq([comments1, comments2, comments3, comments4, comments5])
   end
 end

@@ -32,18 +32,18 @@ RSpec.describe User, type: :model do
 
     most_recent_posts = subject.most_recent_post.to_a
 
-    expect(most_recent_posts).to eq([post3, post2, post1])
+    expect(most_recent_posts).to eq([post1, post2, post3])
   end
 
   it 'returns the 3 most recent posts, even if there are more' do
-    subject.posts.create(title: 'Post 1', text: 'the text', comments_counter: 0, likes_counter: 0)
-    subject.posts.create(title: 'Post 2', text: 'the text', comments_counter: 0, likes_counter: 0)
+    post1 = subject.posts.create(title: 'Post 1', text: 'the text', comments_counter: 0, likes_counter: 0)
+    post2 = subject.posts.create(title: 'Post 2', text: 'the text', comments_counter: 0, likes_counter: 0)
     post3 = subject.posts.create(title: 'Post 3', text: 'the text', comments_counter: 0, likes_counter: 0)
-    post4 = subject.posts.create(title: 'Post 4', text: 'the text', comments_counter: 0, likes_counter: 0)
-    post5 = subject.posts.create(title: 'Post 5', text: 'the text', comments_counter: 0, likes_counter: 0)
+    subject.posts.create(title: 'Post 4', text: 'the text', comments_counter: 0, likes_counter: 0)
+    subject.posts.create(title: 'Post 5', text: 'the text', comments_counter: 0, likes_counter: 0)
 
     most_recent_posts = subject.most_recent_post.to_a
 
-    expect(most_recent_posts).to eq([post5, post4, post3])
+    expect(most_recent_posts).to eq([post1, post2, post3])
   end
 end
