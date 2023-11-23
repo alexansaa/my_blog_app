@@ -16,7 +16,7 @@
       </div>
     <% end %>
     <div class="new_like">
-      <%= link_to 'New Like', user_post_likes_path(user_id: ApplicationController.current_user.id, post_id: post.id), method: :post, remote: true %>
+      <%= link_to 'New Like', user_post_likes_path(user_id: @user.id, post_id: post.id), method: :post, remote: true %>
     </div>
   </div>
 </body>
