@@ -14,11 +14,10 @@ RSpec.describe 'User Single Post Page', type: :system do
       expect(page).to have_content(@post.user.name)
       expect(page).to have_content("Comments: #{@post.comments_counter}")
       expect(page).to have_content("Likes: #{@post.likes_counter}")
-      
+
       @post.comments.each do |cmnt|
         expect(page).to have_content(cmnt.user.name)
         expect(page).to have_content(cmnt.text)
-        
       end
     end
   end

@@ -31,7 +31,5 @@ RSpec.describe 'User Post Index page', type: :system do
         expect(page).to have_current_path(user_post_path(@user, post))
       end
     end
-    
   end
-
 end
