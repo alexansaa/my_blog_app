@@ -13,6 +13,11 @@
   margin-right: 5px;
 }
 
+.comments_body {
+  margin-left: 35px;
+  margin-right: 35px;
+}
+
 .space_commnet_element {
   margin-top: 0;
 }

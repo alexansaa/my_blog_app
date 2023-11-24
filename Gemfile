@@ -45,7 +45,7 @@ gem 'devise'
 
 gem 'nokogiri', '1.15.5'
 
-gem 'cancancan', '~> 1.9'
+gem 'cancancan', '~> 3.0'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem 'image_processing', '~> 1.2'
