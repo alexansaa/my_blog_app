@@ -29,7 +29,7 @@ RSpec.describe Post, type: :model do
     it 'check the corectness of the post counter after a user creates a post' do
       expect(@user.posts_counter).to eq(7)
     end
-    
+
     it 'returns the 3 most recent posts, even if there are more' do
       most_recent_post = @user.most_recent_post.to_a
       expect(most_recent_post).to eq([@posts[0], @posts[1], @posts[2]])
