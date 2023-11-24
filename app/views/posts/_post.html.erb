@@ -22,7 +22,7 @@
     </div>
     <div class="new_like">
       <% if can? :destroy, post %>
-        <%= link_to 'Delete', user_posts_path(user_id: @user.id), method: :delete, remote: true, class: 'no_link' %>
+        <%= link_to 'Delete', user_post_path(user_id: @user.id, id: post.id), method: :delete, remote: true, class: 'no_link' %>
       <% end %>
     </div>
   </div>
