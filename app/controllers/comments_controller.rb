@@ -1,7 +1,9 @@
 class CommentsController < ApplicationController
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
   def new
-    @user = ApplicationController.current_user
-    @post = Post.find(params[:post_id])
+    @user = User.includes(:posts).find(params[:user_id])
+    @post = @user.posts.find(params[:post_id])
     @comment = Comment.new(post: @post)
     respond_to do |format|
       format.html { render :new, locals: { comment: @comment, user: @user, post: @post } }
@@ -9,10 +11,10 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @user = ApplicationController.current_user
+    @user = User.includes(:posts).find(params[:user_id])
     @post = @user.posts.find(params[:post_id])
     @new_comment = @post.comments.new(params.require(:comment).permit(:text))
-    @new_comment.user = @user
+    @new_comment.user = current_user
 
     respond_to do |format|
       if @new_comment.save

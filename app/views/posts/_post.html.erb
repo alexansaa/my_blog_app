@@ -5,7 +5,9 @@
   <div class="border space_post_element">
     <%= link_to user_post_path(@user, post), class: 'no_link' do %>
       <div class="post_title mrg">
-        <h3>Post &#35;<%= index %></h3>
+        <h3><%= post.title %></h3>
+        <br>
+        <h4>Post &#35;<%= index %></h4>
       </div>
       <div class="post_body mrg">
         <p><%= post.text %></p>

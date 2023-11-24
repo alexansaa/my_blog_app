@@ -1,12 +1,11 @@
 class LikesController < ApplicationController
   before_action :authenticate_user!
-​
+
   def create
-    @current_user = current_user
-    @user = User.find(params[:user_id])
-    @post = Post.find(params[:post_id])
-    @new_like = @post.likes.new(user: @current_user)
-​
+    @user = User.includes(:posts).find(params[:user_id])
+    @post = @user.posts.find(params[:post_id])
+    @new_like = @post.likes.new(user: current_user)
+
     respond_to do |format|
       if @new_like.save
         flash[:success] = 'Like saved successfully'
