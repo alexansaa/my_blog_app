@@ -1,6 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
+  include Devise::Test::ControllerHelpers
+
+  before do
+    @user = FactoryBot.create(:user)
+    @user.confirm
+    sign_in @user
+  end
+
   describe 'GET #index' do
     it 'returns http success' do
       get :index
@@ -21,18 +29,18 @@ RSpec.describe UsersController, type: :controller do
 
   describe 'GET #show' do
     it 'returns http success' do
-      get :show, params: { id: 1 }
+      get :show, params: { id: @user.id }
       expect(response).to be_successful
     end
 
     it 'renders the show view' do
-      get :show, params: { id: 1 }
+      get :show, params: { id: @user.id }
       expect(response).to render_template('show')
       assert 'title', 'Here is most of the information for User ID: 1'
     end
 
     it 'renders the correct placeholder text' do
-      get :show, params: { id: 1 }
+      get :show, params: { id: @user.id }
       expect(response).to render_template('show')
       assert 'h1', text: 'Here is most of the information for User ID: 1'
     end

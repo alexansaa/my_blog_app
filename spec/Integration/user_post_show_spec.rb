@@ -6,6 +6,7 @@ RSpec.describe 'User Single Post Page', type: :system do
     @comment = FactoryBot.create(:comment, user: @user, post: @post)
     @like = FactoryBot.create(:like, user: @user, post: @post)
   end
+
   describe 'single user post page' do
     it 'show post info correctly' do
       visit user_post_path(@user, @post)

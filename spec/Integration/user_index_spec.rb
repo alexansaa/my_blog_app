@@ -1,9 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe 'Home Page', type: :system do
+RSpec.describe 'User', type: :system do
+  include Devise::Test::ControllerHelpers
+
   before do
     @users = User.all
     @user = FactoryBot.create(:user)
+    @user.confirm
+    sign_in @user
   end
 
   describe 'index page' do
@@ -11,7 +15,7 @@ RSpec.describe 'Home Page', type: :system do
       visit root_path
       @users.each do |user|
         expect(page).to have_content(user.name)
-        expect(page).to have_css("img[src*='#{user.photo}']")
+        expect(page).to have_css("img[src='#{user.photo}']")
         expect(page).to have_content("Number of posts: #{user.posts_counter}")
       end
     end
