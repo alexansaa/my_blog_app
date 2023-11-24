@@ -21,4 +21,10 @@ class User < ApplicationRecord
   def set_default_values
     self.posts_counter = 0
   end
+
+  private
+
+  def set_default_values
+    self.posts_counter = 0
+  end
 end
