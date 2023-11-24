@@ -16,6 +16,10 @@ class User < ApplicationRecord
     posts.order(created_at: :asc).limit(3)
   end
 
+  def generate_jwt
+    JsonWebToken.encode(user_id: id)
+  end
+
   private
 
   def set_default_values
