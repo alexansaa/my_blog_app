@@ -20,5 +20,10 @@
     <div class="new_like">
       <%= link_to 'New Like', user_post_likes_path(user_id: @user.id, post_id: post.id), method: :post, remote: true %>
     </div>
+    <div class="new_like">
+      <% if can? :destroy, post %>
+        <%= link_to 'Delete', user_post_path(user_id: @user.id, id: post.id), method: :delete, remote: true, class: 'no_link' %>
+      <% end %>
+    </div>
   </div>
 </body>
