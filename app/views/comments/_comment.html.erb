@@ -2,12 +2,19 @@
   <%= stylesheet_link_tag "comment_element" %>
 </head>
 <body>
-  <div class="space_commnet_element mrg border">
+  <div class="space_commnet_element mrg border comments_body">
     <div class="data_mrg">
       <% comments.each do |comment| %>
-        <div class="data">
-          <p><%= User.find(comment.user_id).name %>:</p>
-          <p><%= comment.text %></p>
+        <div>
+          <div class="data">
+            <p><%= User.find(comment.user_id).name %>:</p>
+            <p><%= comment.text %></p>
+          </div>
+          <div class="new_like">
+            <% if can? :destroy, comment %>
+              <%= link_to 'Delete', user_posts_path(user_id: @user.id), method: :delete, remote: true, class: 'no_link' %>
+            <% end %>
+          </div>
         </div>
       <% end %>
     </div>
