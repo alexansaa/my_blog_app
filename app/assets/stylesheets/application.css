@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+
+ .titlePage {
+  text-align: center;
+ }
+
+ .field {
+  text-align: center;
+  margin-bottom: 24px;
+ }
+
+ .actions {
+  text-align: center;
+ }
+
+ .links {
+  text-align: center;
+  margin-top: 35px;
+ }
