@@ -8,6 +8,6 @@
     <% end %>
   </div>
   <div class="new_post">
-    <%= link_to 'New Post', new_user_post_path(ApplicationController.current_user) %>
+    <%= link_to 'New Post', new_user_post_path(@user) %>
   </div>
 </body>

@@ -1,15 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe Like, type: :model do
-  tmp_user = User.new(name: 'myUser', photo: 'link photo', bio: 'my desc', posts_counter: '0')
-  tmp_user.save
-  subject { tmp_user.posts.create(title: 'Post 1', text: 'the text', comments_counter: 0, likes_counter: 0) }
+  before do
+    @user = FactoryBot.create(:user)
+    @post = FactoryBot.create(:post, user: @user)
+    @like = FactoryBot.create(:like, user: @user, post: @post)
+  end
 
-  after { subject.save }
-
-  it 'updates likes counter verification' do
-    subject.likes.create(user: tmp_user)
-
-    expect(subject.likes_counter).to eq(1)
+  describe 'updates' do
+    it 'likes counter verification' do
+      expect(@post.likes_counter).to eq(1)
+    end
   end
 end

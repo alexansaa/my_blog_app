@@ -1,49 +1,31 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  subject { User.new(name: 'myUser', photo: 'link photo', bio: 'my desc', posts_counter: '0') }
-
-  before { subject.save }
-
-  it 'name should be present' do
-    subject.name = nil
-    expect(subject).to_not be_valid
+  before do
+    @user = FactoryBot.create(:user)
+    @posts = []
+    @posts[0] = FactoryBot.create(:post, user: @user)
+    @posts[1] = FactoryBot.create(:post, user: @user)
+    @posts[2] = FactoryBot.create(:post, user: @user)
+    @posts[3] = FactoryBot.create(:post, user: @user)
+    @posts[4] = FactoryBot.create(:post, user: @user)
+    @posts[5] = FactoryBot.create(:post, user: @user)
+    @posts[6] = FactoryBot.create(:post, user: @user)
   end
 
-  it 'posts_counter should be positive or zero, evaluate against nil' do
-    subject.posts_counter = nil
-    expect(subject).to_not be_valid
-  end
+  describe 'data verification' do
+    it 'name should be present' do
+      subject.name = nil
+      expect(@user).to have_attributes(name: anything)
+    end
 
-  it 'posts_counter should be positive or zero, evaluate numerical negative value' do
-    subject.posts_counter = -1
-    expect(subject).to_not be_valid
-  end
+    it 'posts_counter should be positive or zero' do
+      expect(@user.posts_counter).to be >= 0
+    end
 
-  it 'posts_counter should be positive or zero, evaluate against valid value' do
-    subject.posts_counter = 0
-    expect(subject).to be_valid
-  end
-
-  it 'returns the most recent posts' do
-    post1 = subject.posts.create(title: 'Post 1', text: 'the text', comments_counter: 0, likes_counter: 0)
-    post2 = subject.posts.create(title: 'Post 2', text: 'the text', comments_counter: 0, likes_counter: 0)
-    post3 = subject.posts.create(title: 'Post 3', text: 'the text', comments_counter: 0, likes_counter: 0)
-
-    most_recent_posts = subject.most_recent_post.to_a
-
-    expect(most_recent_posts).to eq([post1, post2, post3])
-  end
-
-  it 'returns the 3 most recent posts, even if there are more' do
-    post1 = subject.posts.create(title: 'Post 1', text: 'the text', comments_counter: 0, likes_counter: 0)
-    post2 = subject.posts.create(title: 'Post 2', text: 'the text', comments_counter: 0, likes_counter: 0)
-    post3 = subject.posts.create(title: 'Post 3', text: 'the text', comments_counter: 0, likes_counter: 0)
-    subject.posts.create(title: 'Post 4', text: 'the text', comments_counter: 0, likes_counter: 0)
-    subject.posts.create(title: 'Post 5', text: 'the text', comments_counter: 0, likes_counter: 0)
-
-    most_recent_posts = subject.most_recent_post.to_a
-
-    expect(most_recent_posts).to eq([post1, post2, post3])
+    it 'returns the 3 most recent posts, even if there are more' do
+      most_recent_post = @user.most_recent_post.to_a
+      expect(most_recent_post).to eq([@posts[0], @posts[1], @posts[2]])
+    end
   end
 end

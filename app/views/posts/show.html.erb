@@ -8,6 +8,6 @@
   </div>
   <%= render partial: 'comments/comment', locals: { comments: @comments } %>
   <div class="new_comment">
-    <%= link_to 'New Comment', new_user_post_comment_path(ApplicationController.current_user, @post) %>
+    <%= link_to 'New Comment', new_user_post_comment_path(@user, @post) %>
   </div>
 </body>

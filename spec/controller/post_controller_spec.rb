@@ -1,9 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe PostsController, type: :controller do
+  include Devise::Test::ControllerHelpers
+
   before do
     @user = FactoryBot.create(:user)
     @post = FactoryBot.create(:post, user: @user)
+    @user.confirm
+    sign_in @user
   end
 
   describe 'GET #index' do
