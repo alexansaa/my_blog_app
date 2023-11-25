@@ -1,4 +1,3 @@
-# app/controllers/api/sessions_controller.rb
 module Api
   class SessionsController < Api::BaseController
     def create

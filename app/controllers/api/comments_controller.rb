@@ -1,4 +1,3 @@
-# controllers/api/comments_controller.rb
 module Api
   class CommentsController < Api::BaseController
     before_action :set_user
