@@ -1,12 +1,12 @@
 module Api
   class UsersController < Api::BaseController
     before_action :authenticate_user!, except: [:create]
-  
+
     def index
       @users = User.all
       @user = current_user
     end
-  
+
     def show
       @user = User.find(params[:id])
       @posts = @user.most_recent_post
