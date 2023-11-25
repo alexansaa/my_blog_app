@@ -2,10 +2,10 @@ module Api
   class SessionsController < Api::BaseController
     def create
       auth_service = AuthenticationService.new(params[:username], params[:password])
-      token = auth_service.authenticate
+      my_token = auth_service.authenticate
 
-      if token
-        render json: { token: token }
+      if my_token
+        render json: { token: my_token }
       else
         render json: { error: 'Invalid credentials' }, status: :unauthorized
       end
