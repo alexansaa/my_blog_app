@@ -5,7 +5,7 @@ module Api
       token = auth_service.authenticate
 
       if token
-        render json: { token: token }
+        render json: { token }
       else
         render json: { error: 'Invalid credentials' }, status: :unauthorized
       end

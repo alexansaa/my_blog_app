@@ -8,7 +8,7 @@ class AuthenticationService
   def authenticate
     user = User.find_by(username: @username)
 
-    if user && user.authenticate(@password)
+    if user&.authenticate(@password)
       JsonWebToken.encode(user_id: user.id)
     end
   end
