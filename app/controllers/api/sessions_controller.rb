@@ -1,6 +1,6 @@
 # app/controllers/api/sessions_controller.rb
 module Api
-  class SessionsController < ApplicationController
+  class SessionsController < Api::BaseController
     def create
       auth_service = AuthenticationService.new(params[:username], params[:password])
       token = auth_service.authenticate

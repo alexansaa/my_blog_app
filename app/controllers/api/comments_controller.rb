@@ -1,6 +1,6 @@
 # controllers/api/comments_controller.rb
 module Api
-  class CommentsController < ApplicationController
+  class CommentsController < Api::BaseController
     before_action :set_user
     before_action :set_post
 

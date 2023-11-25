@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @new_comment.save
-        flash[:success] = 'Comment saved suvvessfully'
+        flash[:success] = 'Comment saved successfully'
         format.js { render js: "window.location = '#{user_post_path(@user, @post)}';" }
       else
         flash.now[:error] = 'Error: Comment could not be saved'

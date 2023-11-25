@@ -1,6 +1,6 @@
 # controllers/api/posts_controller.rb
 module Api
-  class PostsController < ApplicationController
+  class PostsController < Api::BaseController
     before_action :set_user
 
     def index
