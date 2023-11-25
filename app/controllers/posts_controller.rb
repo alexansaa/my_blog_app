@@ -10,8 +10,9 @@ class PostsController < ApplicationController
   def show
     @current_user = current_user
     @user = User.includes(:posts).find(params[:user_id])
-    @post = Post.find(params[:id])
+    @post = @user.posts.find(params[:id])
     @comments = @post.comments
+    # @comments = [] unless @comments.any?
   end
 
   def new
